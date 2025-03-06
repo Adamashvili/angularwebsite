@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Products } from '../products';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +13,11 @@ export class HomeComponent {
     this.showAll()
   }
 
-  public allFoods:any[] = []
+  public allFoods:Products[] = []
 
   showAll() {
     this.service.getAllProducts().subscribe( {
-      next: (data:any) => this.allFoods = data,
+      next: (data:Products[]) => this.allFoods = data,
       error: () => {}
     } )
   }

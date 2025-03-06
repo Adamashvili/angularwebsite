@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Products } from './products';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class ApiService {
   }
 
   getAllProducts() {
-    return this.http.get("https://restaurant.stepprojects.ge/api/Products/GetAll")
+    return this.http.get<Products[]>("https://restaurant.stepprojects.ge/api/Products/GetAll")
   }
 
 }
